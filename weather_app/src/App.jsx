@@ -66,7 +66,6 @@ function App() {
 
   const handleLocationSubmit = (event) => {
     event.preventDefault();
-    // Trigger fetchData based on locationInput
     fetchData();
   };
 
@@ -78,26 +77,30 @@ function App() {
           permissions by clicking the lock icon next to the URL.
         </div>
       ) : (
-        <form onSubmit={handleLocationSubmit}>
-          <label>
-            Enter location:
-            <input
-              type="text"
-              value={locationInput}
-              onChange={handleLocationChange}
-            />
-          </label>
-          <button type="submit">Get Weather</button>
-        </form>
+        <div className="mt-20">
+          <form onSubmit={handleLocationSubmit} className="mx-auto p-10 w-[500px] h-[250px] flex flex-col justify-evenly bg-[#F8EDE3] shadow-md">
+            <label className="font-medium text-l flex gap-2">
+              <p>Enter location:  </p>
+              <input
+                type="text"
+                value={locationInput}
+                onChange={handleLocationChange}
+                className="border border-black"
+              />
+            </label>
+            <button type="submit" className="mx-auto w-[150px] h-[50px] bg-[#DAD3BE] rounded-xl font-medium text-xl hover:bg-[#6B8A7A]">Get Weather</button>
+          </form>
+        </div>
       )}
 
       {data && data.main ? (
-        <>
-        <Weather weatherData={data} />
-        <p>{locationInput}</p>
-        </>
+        <div className="">
+          <Weather weatherData={data} />
+        </div>
       ) : (
-        <div>Loading...</div>
+        <div className="mt-20">
+          <p className="text-center">Loading...</p>
+        </div>
       )}
     </div>
   );

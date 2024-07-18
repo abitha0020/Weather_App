@@ -39,13 +39,8 @@ function App() {
         <div className="p-10">
           <LocationInput onLocationChange={onLocationChange}/>
           { loading? (
-            <div className="flex  place-content-center mt-10">
-              <l-line-spinner style={{
-              size:"40",
-              stroke:"3",
-              speed:"1", 
-              color:"black"
-              }} ></l-line-spinner>
+            <div >
+              
             </div>
           ) : (
             <div>

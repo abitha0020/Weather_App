@@ -43,8 +43,8 @@ export default function CurrentLocation(){
 
     return (
         <div>  
-            <div  className="w-[400px] p-10 h-[300px] bg-[#CAE6B2] ">
-                <h1 className="text-center font-bold text-2xl">Current Location Weather Data</h1>
+            <div  className="w-[400px] p-10 h-[300px]  shadow-lg rounded-lg ">
+                <h1 className="text-center font-bold text-2xl"> Weather Data</h1>
                 { loading? (
                     <div className="flex  place-content-center mt-10">
                         <l-line-spinner style={{
@@ -56,7 +56,8 @@ export default function CurrentLocation(){
                     </div>
                 ) : (
                     <div>
-                        <p className="mt-2 text-center font-medium text-base">{data.weather[0].description}</p>
+                        <p className="mt-2 text-center font-medium text-base">Current Location: {data.name}</p>
+                        <p className="mt-2 text-center font-medium text-xl">{data.weather[0].description}</p>
                         <ul className="mt-5">
                             <li className="text-center">Temprature:  {data.main.temp}</li>
                             <li className="text-center">Pressure:  {data.main.pressure}</li>

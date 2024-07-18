@@ -45,7 +45,13 @@ function App() {
            }} ></l-line-spinner>
        </div>
         ) : (
-          <WeatherWidget title={"Temprature"} value={data.main.temp} />
+          <div>
+            <WeatherWidget title={"Temprature"} value={data.main.temp} />
+            <WeatherWidget title={"Description"} value={data.weather[0].description} />
+            <WeatherWidget title={"Pressure"} value={data.main.pressure} />
+            <WeatherWidget title={"Humidity"} value={data.main.humidity} />
+            <WeatherWidget title={"Wind Speed"} value={data.wind.speed} />
+          </div>
         ) }        
       </div>
     </div>

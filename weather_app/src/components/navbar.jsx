@@ -7,11 +7,9 @@ export default function Navbar() {
                 </div>
                 <div className="flex self-center">
                     <a href="#" className="px-4 text-base font-medium leading-6 text-white tracking-[0.2px]">Home</a>
+                    <a href="#" className="px-4 text-base font-medium leading-6 text-white tracking-[0.2px]">About</a>
                     <a href="#" className="px-4 text-base font-medium leading-6 text-white tracking-[0.2px]">Contact</a>
-                </div>
-                <div class="self-center">
-                    <button className="w-[140px] h-[40px] leading-6 text-[17px] text-white tracking-[0.2px] border border-white">Login</button>
-                </div>    
+                </div> 
             </div>
         </nav>
     );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LocationInput from "./components/locationInput.jsx";
 import CurrentLocation from "./components/currentlocation.jsx";
 import WeatherWidget from "./components/weatherwidget.jsx";
+import Navbar from "./components/navbar.jsx";
 
 function App() {
   const [locationData, setLocationData] = useState(null);
@@ -29,30 +30,39 @@ function App() {
   },[locationData]);
 
   return (
-    <div className="App flex">
-      <div>
-        <CurrentLocation />
-      </div>
-      <LocationInput onLocationChange={onLocationChange}/>
-      <div>
-        { loading? (
-           <div className="flex  place-content-center mt-10">
-           <l-line-spinner style={{
-           size:"40",
-           stroke:"3",
-           speed:"1", 
-           color:"black"
-           }} ></l-line-spinner>
-       </div>
-        ) : (
-          <div>
-            <WeatherWidget title={"Temprature"} value={data.main.temp} />
-            <WeatherWidget title={"Description"} value={data.weather[0].description} />
-            <WeatherWidget title={"Pressure"} value={data.main.pressure} />
-            <WeatherWidget title={"Humidity"} value={data.main.humidity} />
-            <WeatherWidget title={"Wind Speed"} value={data.wind.speed} />
-          </div>
-        ) }        
+    <div className="">
+      <Navbar />
+      <div className="flex mt-10 px-10">
+        <div>
+          <CurrentLocation />
+        </div>
+        <div className="p-10">
+          <LocationInput onLocationChange={onLocationChange}/>
+          { loading? (
+            <div className="flex  place-content-center mt-10">
+              <l-line-spinner style={{
+              size:"40",
+              stroke:"3",
+              speed:"1", 
+              color:"black"
+              }} ></l-line-spinner>
+            </div>
+          ) : (
+            <div>
+              <div><p className="font-medium text-3xl text-center p-10">{data.weather[0].description}</p></div>
+              <div className="flex place-content-center gap-4">
+                <div className="flex flex-col gap-4">
+                  <WeatherWidget title={"Temprature"} value={data.main.temp} />
+                  <WeatherWidget title={"Pressure"} value={data.main.pressure} />
+                </div>
+                <div className="flex flex-col gap-4">
+                  <WeatherWidget title={"Humidity"} value={data.main.humidity} />
+                  <WeatherWidget title={"Wind Speed"} value={data.wind.speed} />
+                </div>
+              </div>
+            </div>
+          ) }        
+        </div>
       </div>
     </div>
   );

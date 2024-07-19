@@ -44,7 +44,10 @@ function App() {
             </div>
           ) : (
             <div>
-              <div><p className="font-medium text-3xl text-center p-10">{data.weather[0].description}</p></div>
+              <div className="p-10">
+                <p className="font-medium text-3xl text-center ">{data.name} Weather Report </p>
+                <p className="font-medium text-xl text-center p-2"> {data.weather[0].description}</p>
+              </div>
               <div className="flex place-content-center gap-4">
                 <div className="flex flex-col gap-4">
                   <WeatherWidget title={"Temprature"} value={data.main.temp} />
